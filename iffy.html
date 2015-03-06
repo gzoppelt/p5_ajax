@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Test</title>
+</head>
+<body>
+
+<script>
+    // clear the screen for testing
+    document.body.innerHTML = '';
+    document.body.style.background="white";
+
+    var nums = [1,2,3];
+
+    for (var i in nums){
+        var num = nums[i];
+        var elem = document.createElement('div');
+        elem.textContent = '' + num;
+        //this way num is always 3 because 3 was last assigned to it
+        //elem.addEventListener('click', function() { alert(num); });
+
+        // this is called immediately invoked function expression IIFE => iffy
+        // and works
+        elem.addEventListener('click' ,
+                (function (n) {
+                    return function () { alert(n); };
+                })(num)
+        );
+        document.body.appendChild(elem);
+    }
+
+</script>
+
+</body>
+</html>
