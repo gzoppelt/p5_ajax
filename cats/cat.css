@@ -11,6 +11,18 @@
     border: solid 1px;
 }
 
+#list {
+    float: left;
+    width: 20%;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#cats {
+    display: inline-block;
+    width: 70%;
+}
+
 .counter {
     color: white;
     position:fixed;

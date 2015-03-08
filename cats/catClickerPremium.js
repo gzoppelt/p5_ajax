@@ -3,11 +3,12 @@ var cats = [
     "Honey",
     "Fluffy",
     "Formal",
-    "Sience"
+    "Science"
 ];
 var i,
-    count = 0,
+    count = [],
     catCount,
+    catName,
     catPic,
     catDiv = document.getElementById('cats'),
     catList = document.getElementById('list'),
@@ -17,18 +18,27 @@ for (i in cats) {
     catListEntry = document.createElement('li');
     catListEntry.innerText = cats[i];
     catList.appendChild(catListEntry);
+    count[i] = 0;
     catListEntry.addEventListener('click',
-        (function (name, clicks) {
+        (function (index) {
             return function () {
-                n++;
-                c.innerText = 'Clicks: ' + n;
+                count[index]++;
+                loadCat(index);
             };
-        })(cats[i], count)
+        })(i)
     );
+}
+loadCat(0);
+
+function loadCat(i) {
+    catDiv.innerHTML = "";
+    catName = document.createElement('h3');
+    catName.innerHTML = cats[i];
+    catDiv.appendChild(catName);
 
     catCount = document.createElement('p');
     catCount.setAttribute("class", "catCount");
-    catCount.innerText = 'Count: 0';
+    catCount.innerText = 'Clicks: '+count[i];
     catDiv.appendChild(catCount);
 
     catPic = document.createElement('img');
@@ -36,17 +46,8 @@ for (i in cats) {
     catPic.setAttribute("class", "catPic");
     catPic.setAttribute("alt", "cat " + cats[i]);
     catPic.setAttribute("src", "img/" + cats[i] + ".jpg");
-    catPic.addEventListener('click',
-        (function (c, n) {
-            return function () {
-                n++;
-                c.innerText = 'Clicks: ' + n;
-            };
-        })(catCount, count)
-    );
     catDiv.appendChild(catPic);
 }
-
 
 //jQuery : $('#cat').click(function (e) { ... });
 
