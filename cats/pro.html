@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <title>CatClicker</title>
+    <link rel="stylesheet" href="cat.css">
+</head>
+
+<body>
+    <div>
+        <ul id="list"></ul>
+    </div>
+
+    <div id="cats">
+        <h3 id="cat-name"></h3>
+        <p id="cat-count"></p>
+        <img id="cat-img" class="catPic" alt="a nice cat">
+    </div>
+
+
+    <div id="admin">
+        <button id="admin-button" class="visible">Admin Mode</button>
+        <div id="admin-edit" class="invisible">
+            <label for="name">Name</label>
+            <input  id="name" type="text">
+            <br>
+            <label for="count">Count</label>
+            <input  id="count" type="number">
+            <br>
+            <label for="url">Image URL</label>
+            <input  id="url"type="url">
+            <br>
+            <br>
+            <button id="cancel">Cancel</button>
+            <button id="save">Save</button>
+        </div>
+    </div>
+    <script src="catClickerPro.js"></script>
+</body>
+</html>
